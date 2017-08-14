@@ -37,6 +37,45 @@ app.post('/books', function(req, res){
   })
 });
 
+app.get('/books', function(req, res){
+  Books.find(function(err, books){
+    if(err){
+      throw err;
+    }
+    res.json(books)
+  })
+});
+
+app.delete('/books/:_id', function(req, res){
+  var query = {_id: req.params._id};
+  Books.remove(query, function(err, books){
+    if(err){
+      throw err;
+    }
+    res.json(books);
+  })
+});
+
+app.put('/books/:_id', function(req, res){
+  var book = req.body;
+  var query = req.params._id;
+  var update = {
+    '$set':{
+      title:book.title,
+      description:book.description,
+      image:book.image,
+      price:book.price
+    }
+  };
+  var options = {new: true};
+  Books.findOneAndUpdate(query, update, options, function(err, books){
+    if(err){
+      throw err;
+    }
+    res.json(books);
+  })
+});
+
 app.get('*', function(req, res){
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
