@@ -1,29 +1,11 @@
 "use strict";
 
 export function booksReducers(state={
-  books:
-    [{
-    _id:0,
-    title:"sanity",
-    description:"How to remain sane in this helter skelter world !",
-    price:"10.99"
-    },
-    {
-    _id:1,
-    title:"Happy",
-    description:"How to remain Happy in this helter skelter world !",
-    price:"11.99"
-    },
-    {
-    _id:2,
-    title:"Courage",
-    description:"How to remain courageous in this helter skelter world !",
-    price:"12.99"
-    }]
+  books:[]
 }, action){
   switch (action.type) {
     case "GET_BOOKS":
-    return {...state, books:[...state.books]};
+    return {...state, books:[...action.payload]};
     break;
 
     case "POST_BOOK":
