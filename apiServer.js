@@ -33,7 +33,6 @@ app.use(session({
 
 app.post('/cart', function(req, res){
   var cart = req.body;
-  console.log('cart: ', cart);
   req.session.cart = cart;
   req.session.save(function(err){
     if(err){
@@ -97,6 +96,21 @@ app.put('/books/:_id', function(req, res){
       throw err;
     }
     res.json(books);
+  })
+});
+
+app.get('/images', function(req, res){
+  const imgFolder = __dirname + '/public/images/';
+  const fs = require('fs');
+  fs.readdir(imgFolder, function(err, files){
+    if(err){
+      return console.error(err);
+    }
+    const filesArr = [];
+    files.forEach(function(file){
+      filesArr.push({name: file});
+    });
+    res.json(filesArr);
   })
 });
 
