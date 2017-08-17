@@ -3,8 +3,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Menu from './components/menu';
 import Footer from './components/footer';
+import {getCart} from '../src/actions/cartActions';
+import {bindActionCreators} from 'redux';
 
 class Main extends React.Component{
+  componentDidMount(){
+    this.props.getCart()
+  }
+
   render(){
     return(
       <div>
@@ -22,4 +28,10 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(Main);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    getCart
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
