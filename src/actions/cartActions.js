@@ -13,9 +13,9 @@ export function getCart(){
   }
 }
 
-export function addToCart(book){
+export function addToCart(cart){
   return function(dispatch){
-    axios.post('/api/cart', book)
+    axios.post('/api/cart', cart)
       .then(function(response){
         dispatch({type: "ADD_TO_CART", payload:response.data})
       })

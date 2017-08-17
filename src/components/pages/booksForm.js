@@ -53,7 +53,7 @@ class BooksForm extends React.Component{
 
     const booksList = this.props.books.map(function(booksArr){
       return (
-        <option key={booksArr._id}> {booksArr._id}</option>
+        <option key={booksArr._id}> {booksArr._id} </option>
       )
     })
 
@@ -72,23 +72,23 @@ class BooksForm extends React.Component{
     return(
       <Well>
         <Row>
-          <Col xs={12} sm={6}>
+          <Col xs={12} sm={6} lg={6}>
             <Panel>
               <InputGroup>
                 <FormControl type="text" ref="image" value={this.state.img} />
-                <DropdownButton
-                  componentClass={InputGroup.Button}
-                  id="input-dropdown-addon"
-                  title="Select an image"
-                  bsStyle="primary"
-                >
-                  {imgList}
-                </DropdownButton>
+                  <DropdownButton
+                    componentClass={InputGroup.Button}
+                    id="input-dropdown-addon"
+                    title="Select an image"
+                    bsStyle="primary"
+                  >
+                    {imgList}
+                  </DropdownButton>
               </InputGroup>
               <Image src={this.state.img} responsive />
             </Panel>
           </Col>
-          <Col xs={12} sm={6}>
+          <Col xs={12} sm={6} lg={6}>
             <Panel>
               <FormGroup controlId="title">
                 <ControlLabel>Title</ControlLabel>
@@ -138,7 +138,6 @@ class BooksForm extends React.Component{
             </Panel>
           </Col>
         </Row>
-
       </Well>
     )
   }

@@ -32,9 +32,6 @@ class BooksList extends React.Component{
           <Cart />
         </Row>
         <Row>
-          <Col xs={12} md={6}>
-            <BooksForm />
-          </Col>
           {booksList}
         </Row>
       </Grid>
