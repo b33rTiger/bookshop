@@ -3,9 +3,9 @@ import React from 'react';
 import {MenuItem, InputGroup, DropdownButton, Image, Col, Row, Well, Panel, FormControl, FormGroup, ControlLabel, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import axios from 'axios';
 import {findDOMNode} from 'react-dom';
 import {postBooks, deleteBooks, getBooks} from '../../actions/booksActions';
+import axios from 'axios';
 
 class BooksForm extends React.Component{
   constructor(){
@@ -18,12 +18,13 @@ class BooksForm extends React.Component{
 
   componentDidMount(){
     this.props.getBooks();
+    //GET IMAGES FROM API
     axios.get('/api/images')
       .then(function(response){
-        this.setState({images:response.data});
+      this.setState({images:response.data});
       }.bind(this))
       .catch(function(err){
-        this.setState({images:'error loading images from server', img:''});
+        this.setState({images:'error loadingimage files from the server', img:''})
       }.bind(this))
   }
 
@@ -44,7 +45,7 @@ class BooksForm extends React.Component{
 
    handleSelect(img){
      this.setState({
-       img: '/images/'+img
+       img: '/images/' + img
      })
    }
 
