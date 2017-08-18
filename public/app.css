@@ -5,7 +5,7 @@ body {
 
 .container {
   width: auto;
-  max-width: 900px;
+  /*max-width: 900px;*/
   padding: 0 15px;
 }
 
@@ -21,10 +21,39 @@ body {
   margin-top: 15px;
 }
 
+.books-list {
+  margin-top: 15px;
+}
+
+.carousel-image {
+  height: 300px;
+}
+
+.carousel-image img {
+max-height: 100%;
+max-width: 100%;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+}
+
 .cart-btn-group {
   min-width: 300px;
 }
 
 .cart-plus {
   margin-right: 5px;
+}
+
+button.read-more {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 3;
+  outline: none;
+  outline-offset: 0;
+  color: white;
 }
