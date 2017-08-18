@@ -38,7 +38,7 @@ class BookItem extends React.Component{
           <Col xs={12} sm={4}>
             <Image src={this.props.images} responsive />
           </Col>
-          <Col xs={6} sm={12}>
+          <Col xs={6} sm={8}>
             <h6>{this.props.title}</h6>
             <p>{this.props.description}</p>
             <h6>${this.props.price}</h6>

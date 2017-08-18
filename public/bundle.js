@@ -23234,13 +23234,13 @@ var _reactRedux = __webpack_require__(53);
 
 var _redux = __webpack_require__(37);
 
-var _axios = __webpack_require__(124);
-
-var _axios2 = _interopRequireDefault(_axios);
-
 var _reactDom = __webpack_require__(21);
 
 var _booksActions = __webpack_require__(123);
+
+var _axios = __webpack_require__(124);
+
+var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23269,10 +23269,11 @@ var BooksForm = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.getBooks();
+      //GET IMAGES FROM API
       _axios2.default.get('/api/images').then(function (response) {
         this.setState({ images: response.data });
       }.bind(this)).catch(function (err) {
-        this.setState({ images: 'error loading images from server', img: '' });
+        this.setState({ images: 'error loadingimage files from the server', img: '' });
       }.bind(this));
     }
   }, {
@@ -50931,7 +50932,7 @@ var BookItem = function (_React$Component) {
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
-            { xs: 6, sm: 12 },
+            { xs: 6, sm: 8 },
             _react2.default.createElement(
               'h6',
               null,
